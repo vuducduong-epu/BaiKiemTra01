@@ -1,0 +1,44 @@
+QuanLyPhuongTien quanLy = new QuanLyPhuongTien();
+
+            OTo oTo = new OTo(
+                "OT05",
+                "Toyota",
+                2025,
+                1000000000m,
+                5,
+                2.0m);
+
+            XeMay xeMay = new XeMay(
+                "XM05",
+                "Honda",
+                2025,
+                50000000m,
+                150);
+
+            quanLy.ThemPhuongTien(oTo);
+            quanLy.ThemPhuongTien(xeMay);
+
+            PhuongTien phuongTienMax =
+                quanLy.TimPhuongTienGiaLanBanhCaoNhat();
+
+            Console.WriteLine("Phuong tien co gia lan banh cao nhat:");
+
+            if (phuongTienMax != null)
+            {
+                Console.WriteLine(phuongTienMax.LayThongTin());
+                Console.WriteLine(
+                    $"Gia lan banh: {phuongTienMax.TinhGiaLanBanh():N0}");
+            }
+
+            if (phuongTienMax == oTo &&
+                phuongTienMax.TinhGiaLanBanh() == 1420000000m)
+            {
+                Console.WriteLine("PASS");
+            }
+            else
+            {
+                Console.WriteLine("FAIL");
+            }
+        }
+    }
+}
